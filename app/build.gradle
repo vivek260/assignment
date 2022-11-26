@@ -1,0 +1,59 @@
+plugins {
+    id 'dagger.hilt.android.plugin'
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        apply from: '../project_settings.gradle'
+        applicationId "com.assignment"
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName project.versionName
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            applicationIdSuffix ".debug"
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "Assignment-debug_v${versionName}.apk"
+                }
+            }
+        }
+        release {
+            minifyEnabled project.enableCodeShrinking
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation kotlinDependencies.values()
+    implementation androidDependencies.values()
+    implementation networkDependencies.values()
+    implementation otherDependencies.values()
+    implementation unitTestDependencies.values()
+    implementation uiTestDependencies.values()
+    kapt kaptDependencies.values()
+}
