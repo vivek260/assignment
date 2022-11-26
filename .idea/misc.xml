@@ -8,8 +8,10 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/adapter_list_items.xml" value="0.2375" />
         <entry key="app/src/main/res/layout/adapter_user_items.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.26197916666666665" />
+        <entry key="app/src/main/res/layout/fragment_repo_listing.xml" value="0.23854166666666668" />
         <entry key="app/src/main/res/layout/layout_loader.xml" value="0.16354166666666667" />
-        <entry key="app/src/main/res/layout/main_activity.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/main_activity.xml" value="0.24166666666666667" />
       </map>
     </option>
   </component>

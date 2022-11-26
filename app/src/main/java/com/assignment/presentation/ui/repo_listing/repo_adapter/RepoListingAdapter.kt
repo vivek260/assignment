@@ -1,17 +1,16 @@
-package com.assignment.presentation.ui.adapter
+package com.assignment.presentation.ui.repo_listing.repo_adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.assignment.databinding.AdapterUserItemsBinding
+import com.assignment.databinding.AdapterRepoItemsBinding
 import com.assignment.presentation.model.RepoListResponse
-import com.assignment.presentation.utilities.Utils.Companion.makeVisible
 
 
-class UserAdapter(private var listItems: List<RepoListResponse>) :
-    RecyclerView.Adapter<UserAdapter.ListViewHolder?>() {
+class RepoListingAdapter(private var listItems: List<RepoListResponse>) :
+    RecyclerView.Adapter<RepoListingAdapter.ListViewHolder?>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val binding = AdapterUserItemsBinding.inflate(
+        val binding = AdapterRepoItemsBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -31,7 +30,7 @@ class UserAdapter(private var listItems: List<RepoListResponse>) :
     }
 
 
-    inner class ListViewHolder(val binding: AdapterUserItemsBinding) :
+    inner class ListViewHolder(val binding: AdapterRepoItemsBinding) :
         RecyclerView.ViewHolder(binding.root)
 
 }

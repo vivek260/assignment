@@ -11,17 +11,13 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.viewbinding.ViewBinding
 import com.assignment.presentation.model.ViewModelCreator
 
-abstract class BaseFragment<M : ViewModel, B : ViewBinding> : Fragment() {
-
-    lateinit var viewModel: M
+abstract class BaseFragment<B : ViewBinding> : Fragment() {
 
     private var _binding: B? = null
 
     val binding get() = _binding!!
 
     abstract fun subscribeToObservers()
-
-    abstract fun createViewModel(): ViewModelCreator<M>
 
     abstract fun createViewBinding(inflater: LayoutInflater, container: ViewGroup?): B
 
@@ -35,13 +31,7 @@ abstract class BaseFragment<M : ViewModel, B : ViewBinding> : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        generateViewModel()
         subscribeToObservers()
-    }
-
-    private fun generateViewModel() {
-        val creator = createViewModel()
-        viewModel = ViewModelProviders.of(this, creator.factory).get(creator.type)
     }
 
     override fun onDestroy() {

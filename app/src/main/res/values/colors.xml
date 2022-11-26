@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="screen_bg_color">#f5f6f7</color>
     <color name="forecast_temp">#2a2a2a</color>
+    <color name="grey">#EEDFDFDF</color>
+
 </resources>

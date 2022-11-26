@@ -1,9 +1,13 @@
 package com.assignment.presentation.utilities
 
+import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import com.assignment.R
 import com.assignment.presentation.AssignmentApplication
 
 class Utils {
