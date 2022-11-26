@@ -13,6 +13,6 @@ class RepoListResponse(
     val node_id: String,
     val name: String,
     val description: String?,
-    val created_at: String,
+    val updated_at: String,
     val git_url: String
 ): Parcelable

@@ -8,8 +8,8 @@ class RepoListWrapperResponse(
     @SerializedName("node_id") val node_id: String,
     @SerializedName("name") val name: String,
     @SerializedName("description") val description: String,
-    @SerializedName("created_at") val created_at: String,
+    @SerializedName("updated_at") val updated_at: String,
     @SerializedName("git_url") val git_url: String
     ){
-    fun toRepoList()=RepoListResponse(id, node_id, name, description, created_at, git_url)
+    fun toRepoList()=RepoListResponse(id, node_id, name, description, updated_at, git_url)
 }

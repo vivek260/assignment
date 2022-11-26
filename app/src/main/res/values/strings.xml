@@ -7,4 +7,6 @@
     <string name="owner">Owner/Organization</string>
     <string name="owner_hint">Enter Owner or Organization</string>
     <string name="search">Search</string>
+    <string name="last_updated">Last Updated: %s</string>
+
 </resources>

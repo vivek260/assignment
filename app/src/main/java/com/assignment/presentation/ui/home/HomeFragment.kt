@@ -10,6 +10,8 @@ import com.assignment.databinding.FragmentHomeBinding
 import com.assignment.presentation.base.BaseFragment
 import com.assignment.presentation.model.RepoListResponse
 import com.assignment.presentation.ui.main_activity.MainActivityViewModel
+import com.assignment.presentation.utilities.Utils.Companion.makeGone
+import com.assignment.presentation.utilities.Utils.Companion.makeVisible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -49,6 +51,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.btnSearch.setOnClickListener {
             val searchText: String = binding.etOwner.text.toString()
             if (searchText.trim().isNotEmpty()) {
+                binding.loader.loader.makeVisible()
                 viewModel.searchRepoList(searchText)
             } else {
                 Toast.makeText(
@@ -61,6 +64,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun redirectToListFragment(){
+        binding.loader.loader.makeGone()
         listItems?.let { mainActivityViewModel.openRepoListing(it) }
     }
 

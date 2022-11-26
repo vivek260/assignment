@@ -31,20 +31,17 @@ class RepoListingFragment : BaseFragment<FragmentRepoListingBinding>() {
         super.onStart()
         binding.rvRepoList.layoutManager = LinearLayoutManager(context)
         binding.rvRepoList.isNestedScrollingEnabled = false;
-        binding.rvRepoList.adapter = repoList?.let { RepoListingAdapter(it) }
-    }
+        binding.rvRepoList.adapter = repoList?.let { context?.let { it1 ->
+            RepoListingAdapter(it,
+                it1
+            )
+        } }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_repo_listing, container, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(RepoListingViewModel::class.java)
-
     }
 
     override fun createViewBinding(

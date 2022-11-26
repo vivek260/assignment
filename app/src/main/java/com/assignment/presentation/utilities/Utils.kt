@@ -4,11 +4,15 @@ import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.text.format.DateUtils
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.assignment.R
 import com.assignment.presentation.AssignmentApplication
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Utils {
     companion object {

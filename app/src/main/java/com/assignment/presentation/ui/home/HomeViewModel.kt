@@ -26,7 +26,7 @@ class HomeViewModel @Inject constructor(private val dao: UsersDao) : ViewModel()
     }
 
     private fun onApiSuccess(list: List<RepoListWrapperResponse>) {
-        val data =  list.map {RepoListResponse(it.id,it.node_id,it.name,it.description,it.created_at,it.git_url)}
+        val data =  list.map {RepoListResponse(it.id,it.node_id,it.name,it.description,it.updated_at,it.git_url)}
         repoList.value = data
 //        CoroutineScope(Dispatchers.IO).launch {
 //            //data loaded to the entity
