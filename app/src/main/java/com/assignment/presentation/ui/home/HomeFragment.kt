@@ -10,6 +10,7 @@ import com.assignment.databinding.FragmentHomeBinding
 import com.assignment.presentation.base.BaseFragment
 import com.assignment.presentation.model.RepoListResponse
 import com.assignment.presentation.ui.main_activity.MainActivityViewModel
+import com.assignment.presentation.utilities.Utils.Companion.hideKeyboard
 import com.assignment.presentation.utilities.Utils.Companion.makeGone
 import com.assignment.presentation.utilities.Utils.Companion.makeVisible
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,6 +43,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 binding.loader.loader.makeVisible()
                 searchQuery = searchText
                 viewModel.searchRepoList(searchText)
+                activity?.hideKeyboard()
             } else {
                 Toast.makeText(
                     activity?.applicationContext,
