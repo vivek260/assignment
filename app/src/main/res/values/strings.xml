@@ -8,5 +8,11 @@
     <string name="owner_hint">Enter Owner or Organization</string>
     <string name="search">Search</string>
     <string name="last_updated">Last Updated: %s</string>
+    <string name="owner_name">Owner :-</string>
+    <string name="project_name">Project Name :-</string>
+    <string name="project_description">Description :-</string>
+    <string name="project_link">Project Link :-</string>
+    <string name="contributors">Contributors :-</string>
+    <string name="contributors_count">Contributors Count :-</string>
 
 </resources>

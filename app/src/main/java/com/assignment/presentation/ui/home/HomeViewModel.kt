@@ -6,6 +6,7 @@ import com.assignment.di.db.UsersDao
 import com.assignment.di.entity.RepoEntity
 import com.assignment.domain.entities.RepoListWrapperResponse
 import com.assignment.domain.usecase.RepoListUseCase
+import com.assignment.presentation.model.OwnerResponse
 import com.assignment.presentation.model.RepoListResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.scopes.ViewModelScoped
@@ -16,33 +17,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val dao: UsersDao) : ViewModel() {
-    private val userUserCase by lazy { RepoListUseCase() }
+    private val repoUseCase by lazy { RepoListUseCase() }
     val repoList = MutableLiveData<List<RepoListResponse>>()
     val onError = MutableLiveData<Boolean>()
-    val repoFromDatabase = MutableLiveData<List<RepoEntity>>()
     var pageNo = 1
     fun searchRepoList(query: String) {
-        userUserCase.fetchRepoList(query, pageNo, ::onApiSuccess, ::onApiFailure)
+        repoUseCase.fetchRepoList(query, pageNo, ::onApiSuccess, ::onApiFailure)
     }
 
     private fun onApiSuccess(list: List<RepoListWrapperResponse>) {
-        val data =  list.map {RepoListResponse(it.id,it.node_id,it.name,it.description,it.updated_at,it.git_url)}
+        val data =  list.map {RepoListResponse(it.id,it.node_id,it.name,it.description,it.updated_at,it.html_url,it.contributors_url,it.owner.let {it1-> OwnerResponse(it1.login,it1.avatar_url)})}
         repoList.value = data
-//        CoroutineScope(Dispatchers.IO).launch {
-//            //data loaded to the entity
-//            list.map {
-//                val repoEntity = RepoEntity(
-//                    it.id,
-//                    it.node_id,
-//                    it.name,
-//                    it.description,
-//                    it.created_at,
-//                    it.git_url
-//                )
-//                dao.insertRepo(repoEntity)
-//            }
-//            //using dao to insert data to the database
-//        }
     }
 
     private fun onApiFailure(exception: Exception) {
@@ -52,7 +37,7 @@ class HomeViewModel @Inject constructor(private val dao: UsersDao) : ViewModel()
     fun getAllRepo() {
         CoroutineScope(Dispatchers.IO).launch {
             val list = dao.getAllRepo()
-            repoFromDatabase.postValue(list)
+//            repoFromDatabase.postValue(list)
         }
     }
 }

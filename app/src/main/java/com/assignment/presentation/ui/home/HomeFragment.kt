@@ -18,8 +18,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private lateinit var viewModel: HomeViewModel
     private val mainActivityViewModel: MainActivityViewModel by activityViewModels()
-
+    private var searchQuery: String = ""
     private var listItems: List<RepoListResponse>? = null
+
     companion object {
         fun newInstance() = HomeFragment()
     }
@@ -28,19 +29,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         viewModel.apply {
             repoList.observe(this@HomeFragment) {
                 listItems = it
-                redirectToListFragment()
-            }
-            repoFromDatabase.observe(viewLifecycleOwner) {
-                listItems = it.map { item ->
-                    RepoListResponse(
-                        item.id,
-                        item.node_id,
-                        item.name,
-                        item.description,
-                        item.created_at,
-                        item.git_url
-                    )
-                }
                 redirectToListFragment()
             }
         }
@@ -52,6 +40,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             val searchText: String = binding.etOwner.text.toString()
             if (searchText.trim().isNotEmpty()) {
                 binding.loader.loader.makeVisible()
+                searchQuery = searchText
                 viewModel.searchRepoList(searchText)
             } else {
                 Toast.makeText(
@@ -63,9 +52,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
 
-    private fun redirectToListFragment(){
+    private fun redirectToListFragment() {
         binding.loader.loader.makeGone()
-        listItems?.let { mainActivityViewModel.openRepoListing(it) }
+        listItems?.let { mainActivityViewModel.openRepoListing(it,searchQuery) }
     }
 
     override fun createViewBinding(

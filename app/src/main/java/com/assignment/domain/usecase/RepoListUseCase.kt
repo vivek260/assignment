@@ -4,8 +4,6 @@ import com.assignment.data.repository.RepoListRepository
 import com.assignment.domain.base.UseCase
 import com.assignment.domain.entities.RepoListWrapperResponse
 import com.assignment.domain.entities.Result
-import com.assignment.presentation.model.RepoListResponse
-import com.assignment.presentation.model.RepoResponse
 
 class RepoListUseCase : UseCase<List<RepoListWrapperResponse>>() {
 

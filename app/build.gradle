@@ -53,10 +53,5 @@ dependencies {
     implementation androidDependencies.values()
     implementation networkDependencies.values()
     implementation otherDependencies.values()
-    implementation unitTestDependencies.values()
-    implementation uiTestDependencies.values()
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     kapt kaptDependencies.values()
 }

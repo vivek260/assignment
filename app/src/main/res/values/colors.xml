@@ -10,5 +10,5 @@
     <color name="screen_bg_color">#f5f6f7</color>
     <color name="updated_time">#2a2a2a</color>
     <color name="grey">#EEDFDFDF</color>
-
+    <color name="topic_color">#363636</color>
 </resources>

@@ -49,7 +49,9 @@ ext {
             constraintLayout  : "androidx.constraintlayout:constraintlayout:2.0.4",
             roomKtx           : "androidx.room:room-ktx:$room_version",
             roomRuntime       : "androidx.room:room-runtime:$room_version",
-            hilt              : "com.google.dagger:hilt-android:$hilt_version"
+            hilt              : "com.google.dagger:hilt-android:$hilt_version",
+            liveData          : "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1",
+            viewModel         : "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     ]
 
     networkDependencies = [
@@ -60,16 +62,8 @@ ext {
 
     otherDependencies = [
             gson: "com.google.code.gson:gson:2.8.5",
+            coil: "io.coil-kt:coil:2.2.1"
 
-    ]
-
-    unitTestDependencies = [
-            junit: "junit:junit:4.12"
-    ]
-
-    uiTestDependencies = [
-            runner  : "androidx.test:runner:1.2.0",
-            espresso: "androidx.test.espresso:espresso-core:3.2.0"
     ]
 
     kaptDependencies = [

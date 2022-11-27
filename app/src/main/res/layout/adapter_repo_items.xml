@@ -9,6 +9,7 @@
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
     app:strokeColor="@color/black"
+    android:id="@+id/card"
     app:strokeWidth="1dp">
 
     <RelativeLayout
